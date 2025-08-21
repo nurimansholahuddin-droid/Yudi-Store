@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FASHIONLY - Premium Pre-order</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
     <style>
         /* CSS Styles */
         :root {
@@ -15,7 +17,6 @@
             --light: #c0c0c0;
             --gray: #757575;
             --white: #e6f7fa;
-            
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -33,7 +34,10 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
         }
@@ -57,6 +61,7 @@
             z-index: 1000;
             transition: var(--transition);
             background-color: aqua;
+
         }
 
         .header-container {
@@ -142,10 +147,25 @@
         }
 
         @keyframes slide {
-            0%, 25% { transform: translateX(0); }
-            33%, 58% { transform: translateX(-33.33%); }
-            66%, 91% { transform: translateX(-66.66%); }
-            100% { transform: translateX(0); }
+
+            0%,
+            25% {
+                transform: translateX(0);
+            }
+
+            33%,
+            58% {
+                transform: translateX(-33.33%);
+            }
+
+            66%,
+            91% {
+                transform: translateX(-66.66%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
         .slide {
@@ -378,8 +398,94 @@
         .btn-small:hover {
             background: var(--primary-dark);
         }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            .hero-slider {
+                height: 50vh;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-card {
+                margin: 0 auto;
+            }
+
+            .product-img img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo-text p {
+                font-size: 0.6rem;
+            }
+
+            .slide-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .slide-content p {
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                padding: 8px 15px;
+            }
+
+            .product-title {
+                font-size: 0.9rem;
+            }
+
+            .current-price {
+                font-size: 1rem;
+            }
+
+            .original-price {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <header class="header">
@@ -391,7 +497,7 @@
                     <p>PRE-ORDER</p>
                 </div>
             </div>
-            
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
@@ -414,11 +520,12 @@
                 </div>
                 <div class="slide-content">
                     <h2>Independencevb Vibes Collection</h2>
-                    <p>Pre-order now and get 25% discount for our limited edition summer collection. Only available for pre-order customers.</p>
+                    <p>Pre-order now and get 25% discount for our limited edition summer collection. Only available for
+                        pre-order customers.</p>
                     <a href="#" class="btn">Pre-order Now</a>
                 </div>
             </div>
-            
+
             <!-- Slide 2 -->
             <div class="slide">
                 <div class="slide-img">
@@ -426,11 +533,12 @@
                 </div>
                 <div class="slide-content">
                     <h2>Premium Materials</h2>
-                    <p>Crafted with highest quality fabrics for maximum comfort and durability. Pre-order to ensure your size is available.</p>
+                    <p>Crafted with highest quality fabrics for maximum comfort and durability. Pre-order to ensure your
+                        size is available.</p>
                     <a href="#" class="btn">Pre-order Now</a>
                 </div>
             </div>
-            
+
             <!-- Slide 3 -->
             <div class="slide">
                 <div class="slide-img">
@@ -438,7 +546,8 @@
                 </div>
                 <div class="slide-content">
                     <h2>Elegant Evenings</h2>
-                    <p>Our special occasion collection is available for pre-order only. Reserve yours before we run out of stock.</p>
+                    <p>Our special occasion collection is available for pre-order only. Reserve yours before we run out
+                        of stock.</p>
                     <a href="#" class="btn">Pre-order Now</a>
                 </div>
             </div>
@@ -452,7 +561,7 @@
                 <h2>Why Pre-order With Us</h2>
                 <p>The benefits you get when pre-ordering from our store</p>
             </div>
-            
+
             <div class="benefits-container">
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -461,7 +570,7 @@
                     <h3>Special Discount</h3>
                     <p>Up to 30% discount for pre-order items compared to regular price</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-medal"></i>
@@ -469,7 +578,7 @@
                     <h3>Premium Quality</h3>
                     <p>Items made specifically for pre-order customers with higher attention to detail</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-calendar-check"></i>
@@ -477,7 +586,7 @@
                     <h3>Guaranteed Stock</h3>
                     <p>Your pre-order ensures we reserve your size and color for production</p>
                 </div>
-                
+
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-gem"></i>
@@ -496,7 +605,7 @@
                 <h2>NEW PRODUK</h2>
                 <p>Our most popular pre-order selections</p>
             </div>
-            
+
             <div class="products-container">
                 <!-- Product 1 -->
                 <div class="product-card">
@@ -514,7 +623,7 @@
                         <a href="#" class="btn-small">Pre-order</a>
                     </div>
                 </div>
-                
+
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-badge">New</div>
@@ -531,7 +640,7 @@
                         <a href="#" class="btn-small">Pre-order</a>
                     </div>
                 </div>
-                
+
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-badge">New</div>
@@ -548,7 +657,7 @@
                         <a href="#" class="btn-small">Pre-order</a>
                     </div>
                 </div>
-                
+
                 <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-badge">New</div>
@@ -569,4 +678,4 @@
         </div>
     </section>
 </body>
-</html> 
+</html>
