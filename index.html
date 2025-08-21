@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,11 +133,21 @@
         /* Slider Section */
         .hero-slider {
             margin-top: 90px;
+            /* Margin default untuk desktop */
             position: relative;
             height: 70vh;
             min-height: 500px;
             overflow: hidden;
         }
+
+        /* Tambahkan media query untuk perangkat mobile */
+        @media (max-width: 768px) {
+            .hero-slider {
+                margin-top: 120px;
+                /* Tambahkan margin lebih besar untuk perangkat mobile */
+            }
+        }
+
 
         .slider-container {
             width: 300%;
@@ -605,7 +616,7 @@
                 <h2>NEW PRODUK</h2>
                 <p>Our most popular pre-order selections</p>
             </div>
-
+            
             <div class="products-container">
                 <!-- Product 1 -->
                 <div class="product-card">
@@ -623,7 +634,7 @@
                         <a href="#" class="btn-small">Pre-order</a>
                     </div>
                 </div>
-
+                
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-badge">New</div>
@@ -678,4 +689,5 @@
         </div>
     </section>
 </body>
+
 </html>
