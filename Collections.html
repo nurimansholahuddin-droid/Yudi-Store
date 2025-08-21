@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUDI-COLLECTIONS - Collections</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary: #008080;
+            --primary-dark: #7b1fa2;
+            --secondary: #ff9800;
+            --dark: #212121;
+            --light: #f5f5f5;
+            --gray: #757575;
+            --white: #ffffff;
+
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            background-color: aqua;
+
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 12px;
+            border-radius: 8px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--gray);
+        }
+
+        /* Navigation */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .main-nav a {
+            color: var(--dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Collections Section */
+        .collections-header {
+            margin-top: 90px;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .collections-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .collections-header p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .product-img {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-img img {
+            width: 148px;
+            height: 148px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        .btn-small {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Fashionly Store Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>YUDI STORE</h1>
+                    <p>PRE-ORDER</p>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="active">Collections</a></li>
+                    <li><a href="#">Pre-order</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Collections Header -->
+    <section class="collections-header">
+        <h2>Our Collections</h2>
+        <p>Explore our wide range of pre-order items</p>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="products-container">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Floral Summer Blouse - White and Pink">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Blouse</span>
+                        <h3 class="product-title">Floral Summer Blouse</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 279.000</span>
+                            <span class="original-price">Rp 399.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Linen Men's Shirt - Beige">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Shirt</span>
+                        <h3 class="product-title">Premium Linen Shirt</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 349.000</span>
+                            <span class="original-price">Rp 499.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="A-line Midi Dress - Navy Blue">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Dress</span>
+                        <h3 class="product-title">Elegant Midi Dress</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 499.000</span>
+                            <span class="original-price">Rp 699.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Denim Jacket - Light Wash">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Jacket</span>
+                        <h3 class="product-title">Classic Denim Jacket</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 599.000</span>
+                            <span class="original-price">Rp 799.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Casual T-Shirt - Black">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">T-Shirt</span>
+                        <h3 class="product-title">Casual Black T-Shirt</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 199.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Chic Skirt - Red">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Skirt</span>
+                        <h3 class="product-title">Chic Red Skirt</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 299.000</span>
+                            <span class="original-price">Rp 399.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Stylish Jumpsuit - Green">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Jumpsuit</span>
+                        <h3 class="product-title">Stylish Green Jumpsuit</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 499.000</span>
+                            <span class="original-price">Rp 699.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Sporty Hoodie - Grey">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Hoodie</span>
+                        <h3 class="product-title">Sporty Grey Hoodie</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 399.000</span>
+                            <span class="original-price">Rp 599.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Elegant Blazer - Black">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Blazer</span>
+                        <h3 class="product-title">Elegant Black Blazer</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 799.000</span>
+                            <span class="original-price">Rp 999.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Casual Shorts - Blue">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Shorts</span>
+                        <h3 class="product-title">Casual Blue Shorts</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 199.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Trendy Cap - Black">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Trendy Black Cap</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 99.000</span>
+                            <span class="original-price">Rp 149.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <div class="product-badge">Pre-order</div>
+                    <div class="product-img">
+                        <img src="https://placehold.co/148x148" alt="Stylish Belt - Brown">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Stylish Brown Belt</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 149.000</span>
+                            <span class="original-price">Rp 199.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

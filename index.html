@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASHIONLY - Premium Pre-order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary: #008080;
+            --primary-dark: #ffa726;
+            --secondary: #800000;
+            --dark: #212121;
+            --light: #c0c0c0;
+            --gray: #757575;
+            --white: #e6f7fa;
+            
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: aqua;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            margin-right: 12px;
+            border-radius: 8px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--gray);
+        }
+
+        /* Navigation */
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .main-nav a {
+            color: var(--dark);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        /* Slider Section */
+        .hero-slider {
+            margin-top: 90px;
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 300%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.8s ease;
+            animation: slide 9s infinite;
+        }
+
+        @keyframes slide {
+            0%, 25% { transform: translateX(0); }
+            33%, 58% { transform: translateX(-33.33%); }
+            66%, 91% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        .slide {
+            width: 33.33%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            position: relative;
+        }
+
+        .slide-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .slide-img img {
+            width: 480px;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .slide-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .slide-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .slide-content p {
+            margin-bottom: 25px;
+            color: var(--gray);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(156, 39, 176, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+        }
+
+        /* Pre-order Benefits */
+        .pre-order-benefits {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: rgba(156, 39, 176, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .benefit-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Products Section */
+        .featured-products {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background-color: #e0fff8;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .product-img {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-img img {
+            width: 148px;
+            height: 148px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        .btn-small {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-small:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Fashionly Store Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>YUDI STORE</h1>
+                    <p>PRE-ORDER</p>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="Collections.html">Collections</a></li>
+                    <li><a href="#">Pre-order</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="slide-img">
+                    <img src="produk.png" alt="Summer Collection Floral Dress on model">
+                </div>
+                <div class="slide-content">
+                    <h2>Independencevb Vibes Collection</h2>
+                    <p>Pre-order now and get 25% discount for our limited edition summer collection. Only available for pre-order customers.</p>
+                    <a href="#" class="btn">Pre-order Now</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-img">
+                    <img src="produk4.png" alt="Premium Quality Men's Shirt">
+                </div>
+                <div class="slide-content">
+                    <h2>Premium Materials</h2>
+                    <p>Crafted with highest quality fabrics for maximum comfort and durability. Pre-order to ensure your size is available.</p>
+                    <a href="#" class="btn">Pre-order Now</a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-img">
+                    <img src="produk2.png" alt="Elegant Evening Dress">
+                </div>
+                <div class="slide-content">
+                    <h2>Elegant Evenings</h2>
+                    <p>Our special occasion collection is available for pre-order only. Reserve yours before we run out of stock.</p>
+                    <a href="#" class="btn">Pre-order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-order Benefits -->
+    <section class="pre-order-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Pre-order With Us</h2>
+                <p>The benefits you get when pre-ordering from our store</p>
+            </div>
+            
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Special Discount</h3>
+                    <p>Up to 30% discount for pre-order items compared to regular price</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Items made specifically for pre-order customers with higher attention to detail</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Guaranteed Stock</h3>
+                    <p>Your pre-order ensures we reserve your size and color for production</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Exclusive Items</h3>
+                    <p>Access to limited edition designs only available for pre-order</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>NEW PRODUK</h2>
+                <p>Our most popular pre-order selections</p>
+            </div>
+            
+            <div class="products-container">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="produk.png" alt="Floral Summer Blouse - White and Pink">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Dress</span>
+                        <h3 class="product-title">Maroon Chic Gamis</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 250.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="produk2.png" alt="Linen Men's Shirt - Beige">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Dress</span>
+                        <h3 class="product-title">Batika Mode</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 250.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="produk3.png" alt="A-line Midi Dress - Navy Blue">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Dress</span>
+                        <h3 class="product-title">Larina Mode</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 250.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="produk4.png" alt="Denim Jacket - Light Wash">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Dress</span>
+                        <h3 class="product-title">Ayyara Wear</h3>
+                        <div class="product-price">
+                            <span class="current-price">Rp 250.000</span>
+                            <span class="original-price">Rp 299.000</span>
+                        </div>
+                        <a href="#" class="btn-small">Pre-order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
